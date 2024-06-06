@@ -11,10 +11,12 @@ function derrota(){
 }
 
 function subiuDeLevel(){
+    if(xp < 1000){
     console.log(`O Herói, de nome ${nome}, está no nível ${level}`);
     console.log("você é um heroi ferro")
-    console.log("pois se seu XP for menor do que do que 1.000 você é classificado como ferro")
+    console.log("pois se XP for menor do que 1.000 = ferro")
     console.log(`xp atual: ${xp}`)
+    }
 }
 
 function fight(){
@@ -38,7 +40,8 @@ function fight(){
                         batalhar = readlineSync.question("Deseja lutar contra eles novamente?: ");
                         
                         if(batalhar !== "sim"){
-                            console.log("Você desistiu da luta e fugiu...")
+                            console.log("Você desistiu da luta e fugiu...");
+                            subiuDeLevel()
                             derrota();
                             return; // Encerra a função se o jogador desistir da luta
                         }
@@ -50,6 +53,7 @@ function fight(){
                 } 
                 else{
                     console.log("Você desistiu da luta e fugiu...")
+                    subiuDeLevel();
                     derrota();
                 }
             }, timeout);
